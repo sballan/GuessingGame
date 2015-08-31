@@ -3,10 +3,6 @@ body {
 	text-align: center;
 }
 
-#guess-image{
-	border-radius: 6px;
-}
-
 h2 {
 	font-size: 180%;
 }
@@ -20,17 +16,19 @@ h2 {
 button {
     align-items: flex-start;
     text-align: center;
+	
 }
 
 .btn {
 	text-align: center;
     vertical-align: middle;
-	margin: auto;
+	margin-bottom: 10px;
 }
 
 .page-header {
 	border-bottom: 0px;
 }
+
 .page-footer {
 	color:dimgray;
 }
