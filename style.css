@@ -5,11 +5,12 @@ body {
 
 h2 {
 	font-size: 180%;
+	font-family: sans-serif;
 }
 
 .form-control {
-	height: 75px;
-	width: 200px;
+	height: 50px;
+	width: 160px;
 	margin: 10px auto;
 }
 
