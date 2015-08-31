@@ -1,13 +1,37 @@
-.container {
-	background-color: #333333;
+body {
+	background-color:#F0E9D7;
+	text-align: center;
 }
 
-h1 {
-	font-size: 400%;
-	color: #A80638;
+#guess-image{
+	border-radius: 6px;
 }
 
+h2 {
+	font-size: 180%;
+}
+
+.form-control {
+	height: 75px;
+	width: 200px;
+	margin: 10px auto;
+}
+
+button {
+    align-items: flex-start;
+    text-align: center;
+}
+
+.btn {
+	text-align: center;
+    vertical-align: middle;
+	margin: auto;
+}
+
+.page-header {
+	border-bottom: 0px;
+}
 .page-footer {
-	color: #A80638;
+	color:dimgray;
 }
 

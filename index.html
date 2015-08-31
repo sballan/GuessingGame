@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Guessing Game</title>
+	<title>Guess The Number!</title>
 	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	
+	<!-- JQuery-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>	
@@ -16,35 +19,32 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="container-fluid">
 		
 		<header class="page-header">
-			<h1 class="text-center">Guess The Number</h1>
+			<div id='image'>
+      	<img src='http://www.kittiparty.com/blog/wp-content/uploads/2015/04/60-Seconds-Fun-1.jpg' alt='Guessing Game Logo' id='guess-image'>
+      </div>
 		</header>
 		
 		
 		<div class="row">
-			<div class="col-xs-4 col-xs-offset-4">
-			<form>
-				<div class="form-group">
-					<label for="exampleInputEmail1">Email address</label>
-					<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Input Number 1-100">
-				</div>
-			</form>
+			<div class="form-group">
+					<label for="numberinput">Guess a Number!</label>
+					<input type="text" class="form-control input" id="numberguess" placeholder="Input Number 1-100">
 			</div>
-		</div>
+			
+			<a href="" class="btn btn-info btn-lg">Submit Your Guess</a>
 		
-		<div class="row">
-			<div class="col-xs-4 col-xs-offset-4">
-				<a href="" class="btn btn-info">Submit Your Guess</a>
-			</div>
 		</div>
 		
 		
 		<div class="row">
-			<div class="col-xs-4 col-xs-offset-4">
-				<button type="button" class="btn btn-default">Play Again</button>
-				<button type="button" class="btn btn-default">Give me a Hint</button>
+			<div class="col-sm-2 col-sm-offset-4">
+				<button type="button" class="btn btn-default btn-lg">Play Again</button>
+			</div>
+			<div class="col-sm-2 ">
+				<button type="button" class="btn btn-default btn-lg">Give me a Hint</button>
 			</div>
 		</div>
 		
