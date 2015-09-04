@@ -11,7 +11,6 @@ function reset() {
 	updateGuessCounter();
 	hidePlayAgain();
 	$('#you-lose').hide();
-	
 }
 
 function updateGuessCounter(n) {
@@ -24,10 +23,6 @@ function updateGuessCounter(n) {
 function wrongAnswer() {
 	updateGuessCounter(-1);
 	if (guessCounter <= 0) { youLose() }
-}
-
-function youWin() {
-	alert("You Win!");
 }
 
 function youLose() {
@@ -47,7 +42,6 @@ function showPlayAgain() {
 
 function eval(n) {
 	var difference = randomNumber - n;
-	alert(difference);
 	
 	switch(true) {
 		case difference >= 60 || difference <= -60:
@@ -79,9 +73,14 @@ function eval(n) {
 	}
 }
 
+//RUN BEFORE PAGE LOADS
+$('#play-again-button').hide();
+reset();
+
 $(document).ready(function() {
-	$('#play-again-button').hide();
-	reset();
+	$(function () {
+  		$('[data-toggle="popover"]').popover()
+	})
 	
 	$("#play-again-button").click(function() {
 		reset();
@@ -89,17 +88,15 @@ $(document).ready(function() {
 	
 	$("#submit-button").on('click', function() {
 		inputNumber = $('#numberguess').val();
-		
-		if(inputNumber != randomNumber) {
+		if(inputNumber != randomNumber) { 
 			wrongAnswer();
-		} else { 
-			youWin();
-		}
+		} else { alert("You Win!") }
 	});
 	
 	$('#hint-button').on('click', function() {
 		var hintString = eval(inputNumber);
-		alert(hintString);
+		alert($('#hint-button').data());
+		
 	});
 	
 });
