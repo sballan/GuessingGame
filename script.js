@@ -37,10 +37,46 @@ function youLose() {
 
 function hidePlayAgain() {
 	$('#play-again-button').slideUp('fast');
+	$('#play-again-button').addClass('you-lose-popup');
 }
 
 function showPlayAgain() {
+	$('#play-again-button').removeClass('you-lose-popup');
 	$('#play-again-button').slideDown('fast');
+}
+
+function eval(n) {
+	var difference = randomNumber - n;
+	alert(difference);
+	
+	switch(true) {
+		case difference >= 60 || difference <= -60:
+			return "Very Cold";
+			break;
+		case difference >= 40 || difference <= -40:
+			return "Cold";
+			break;
+		case difference >= 30 || difference <= -30:
+			return "Not So Warm";
+			break;
+		case difference >= 20 || difference <= -20:
+			return "Getting Warm";
+			break;
+		case difference >= 15 || difference <= -15:
+			return "Getting Warm";
+			break;
+		case difference >= 10 || difference <= -10:
+			return "Hot!";
+			break;
+		case difference >= 5 || difference <= -5:
+			return "Very Hot!";
+			break;
+		case difference >= 1 || difference <= -1:
+			return "Burning Up!";
+			break;
+		default:
+			return "Try Again";	
+	}
 }
 
 $(document).ready(function() {
@@ -56,11 +92,15 @@ $(document).ready(function() {
 		
 		if(inputNumber != randomNumber) {
 			wrongAnswer();
-		} else {
+		} else { 
 			youWin();
 		}
 	});
 	
+	$('#hint-button').on('click', function() {
+		var hintString = eval(inputNumber);
+		alert(hintString);
+	});
 	
 });
 

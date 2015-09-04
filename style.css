@@ -39,10 +39,11 @@ h3 {
 	color: red;
 	font-size: 400;
 	font-weight: 900;
+	opacity: 0;
 }
 
 .you-lose-popup {
-	
+	opacity: 1;
 }
 
 .page-footer {
