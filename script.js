@@ -78,9 +78,9 @@ $('#play-again-button').hide();
 reset();
 
 $(document).ready(function() {
-	$(function () {
-  		$('[data-toggle="popover"]').popover()
-	})
+//	$(function () {
+//  		$('[data-toggle="popover"]').popover()
+//	})
 	
 	$("#play-again-button").click(function() {
 		reset();
@@ -95,7 +95,8 @@ $(document).ready(function() {
 	
 	$('#hint-button').on('click', function() {
 		var hintString = eval(inputNumber);
-		alert($('#hint-button').data());
+//		alert($('#hint-button').data());
+		alert(hintString);
 		
 	});
 	
