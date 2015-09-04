@@ -29,6 +29,22 @@ button {
 	border-bottom: 0px;
 }
 
+h3 {
+	font-size: 400%;
+	font-weight: 900;
+}
+
+#you-lose {
+	font-family:sans-serif;
+	color: red;
+	font-size: 400;
+	font-weight: 900;
+}
+
+.you-lose-popup {
+	
+}
+
 .page-footer {
 	color:dimgray;
 }

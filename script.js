@@ -8,10 +8,14 @@ function reset() {
 	randomNumber = Math.floor((Math.random() * 100) + 1);
 	guessCounter = 5;
 	inputNumber = 0;
+	updateGuessCounter();
+	hidePlayAgain();
+	$('#you-lose').hide();
+	
 }
 
 function updateGuessCounter(n) {
-	if(n === undefined) { n= -1}
+	if(n === undefined) { n = 0}
 	
 	guessCounter += n;
 	$(".guess-counter").text("" + guessCounter + " Guesses Remaining");
@@ -27,15 +31,23 @@ function youWin() {
 }
 
 function youLose() {
-	alert("You Lose!");
+	$('#you-lose').show();
+	showPlayAgain();
+}
+
+function hidePlayAgain() {
+	$('#play-again-button').slideUp('fast');
+}
+
+function showPlayAgain() {
+	$('#play-again-button').slideDown('fast');
 }
 
 $(document).ready(function() {
+	$('#play-again-button').hide();
 	reset();
-	alert("Random number is: " + randomNumber);
 	
 	$("#play-again-button").click(function() {
-		alert("Play Again!");
 		reset();
 	});
 	
