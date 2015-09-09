@@ -83,6 +83,7 @@ function runSubmitButton() {
 //reset();
 
 currentGame = new GameObject();
+$('#you-lose').hide();
 
 $(document).ready(function() {
 	$("#new-game-button").click(function() {

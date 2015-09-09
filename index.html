@@ -22,10 +22,9 @@
       		</div>
 		</header>
 		
-		<div class="" id="you-lose">
-			<h3>YOU LOSE!</h3>
-		</div>
 		
+		
+<!--
 		<div class="row" id="submit-input">
 			<div class="form-group">
 				<label for="numberinput">Guess a Number!</label>
@@ -35,14 +34,41 @@
 			<button class="btn btn-info btn-lg" id="submit-button">Submit Your Guess</button>
 		
 		</div>
+-->
 		
 <!--	New Game Button-->
 		<div class="row">
-			<button type="button" class="btn btn-default btn-lg" id="new-game-button">New Game</button>
-		</div>	
-		<div class="row">
-			<button type="button" class="btn btn-default btn-lg" data-container="body" data-toggle="popover" data-placement="right" data-content="Enter a Number" id="hint-button">Give me a Hint</button>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="numberinput">Guess a Number!</label>
+					<input type="text" class="form-control" id="numberguess" placeholder="Input Number 1-100">
+					
+					<button class="btn btn-info btn-lg" id="submit-button">Submit Your Guess</button>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="" id="you-lose">
+					<h3>YOU LOSE!</h3>
+				</div>
+			</div>
+			<div class="col-md-4">
+
+			</div>
+			
 		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<button type="button" class="btn btn-default btn-lg" id="new-game-button">New Game</button>
+					
+				<button type="button" class="btn btn-default btn-lg" data-container="body" data-toggle="popover" data-placement="right" data-content="Enter a Number" id="hint-button">Give me a Hint</button>	
+			</div>
+			
+					
+			
+		</div>
+			
+		
 		
 		<footer class="page-footer">
 			<h2 class="text-center guess-counter"> 5 Guesses Remaining</h2>
