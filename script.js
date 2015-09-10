@@ -37,7 +37,6 @@ var GameObject = function() {
 		switch (true) {
 			case tempDirection === this.currentDist:
 				if(tempDirection <= 20) {
-					alert(tempDirection, this.currentDist);
 					$("#you-are-hot").slideDown().removeClass("hidden");
 				} else {
 					$("#you-are-cold").slideDown().removeClass("hidden");
