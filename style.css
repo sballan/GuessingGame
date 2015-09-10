@@ -8,34 +8,10 @@ h2 {
 	font-family: sans-serif;
 }
 
-h3 {
-	font-size: 400%;
-	font-weight: 900;
-}
-
-h4, #input-title {
-	font-weight: 600;
-	font-size: 200%;
-}
-
 .form-control {
 	height: 50px;
-	width: 200px;
+	width: 160px;
 	margin: 10px auto;
-}
-
-#cold-image, #hot-image {
-	height: 400px;
-	margin-bottom: 30px;
-	
-} 
-
-#you-are-cold, #getting-colder {
-	color: aqua;
-} 
-
-#you-are-hot, #getting-hotter {
-	color: crimson;
 }
 
 button {
@@ -46,26 +22,23 @@ button {
 .btn {
 	text-align: center;
     vertical-align: middle;
-	margin-top: 10px;
-}
-
-.list-group-item {
-	font-size: 200%;
-}
-
-#you-lose, #you-win {
-	font-family:sans-serif;
-	color: red;
-	font-size: 400;
-	font-weight: 900;
-}
-
-#you-win {
-	color: black;
+	margin-bottom: 10px;
 }
 
 .page-header {
 	border-bottom: 0px;
+}
+
+h3 {
+	font-size: 400%;
+	font-weight: 900;
+}
+
+#you-lose {
+	font-family:sans-serif;
+	color: red;
+	font-size: 400;
+	font-weight: 900;
 }
 
 .page-footer {
