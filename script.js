@@ -4,15 +4,72 @@ var currentGame;
 var GameObject = function() {
 	this.randomNumber = Math.floor((Math.random() * 100) + 1);
 	this.guessCounter = 5;
-	this.input = 0;
+	this.input = -1;
 	this.guessArray = [];
+	this.currentDist = 0;
+	this.lastDist = 0;
+	this.tempDirection = 0;
+	
+	this.takeInput = function(userInput) {
+		
+		if(userInput === "") {
+			return false;
+		} else if(userInput < 0 || userInput > 100) {
+			return false;
+		} else if(userInput % 1 !== 0 ){
+			return false;
+		}  else if(this.guessArray.indexOf(userInput) >= 0) {
+			return false;
+		}
+
+		this.input = userInput;
+		this.lastDist = this.currentDist;
+		this.currentDist = Math.abs(userInput - this.randomNumber);
+		this.tempDirection = this.currentDist - this.lastDist;
+		
+		this.guessArray.push(userInput);
+		
+		return true;
+	};
+	
+	this.evaluateInput = function(tempDirection) {
+		removeAllTemps();
+		switch (true) {
+			case tempDirection === this.currentDist:
+				if(tempDirection <= 20) {
+					alert(tempDirection, this.currentDist);
+					$("#you-are-hot").slideDown().removeClass("hidden");
+				} else {
+					$("#you-are-cold").slideDown().removeClass("hidden");
+				}
+				break;
+				
+			case tempDirection < 0:
+				$("#getting-hotter").slideDown().removeClass("hidden");
+				break;
+			case tempDirection >= 0:
+				$("#getting-colder").slideDown().removeClass("hidden");
+				break;
+		}
+		
+	};
+};
+
+function removeAllTemps() {
+	$("#you-are-hot").slideUp("slow");
+	$("#you-are-cold").slideUp("fast");
+	$("#getting-hotter").slideUp("fast");
+	$("#getting-colder").slideUp("fast");
 }
 
 function reset() {
 	currentGame = new GameObject();
+	$('#user-guess-list').empty();
 	updateGuessCounter();
-	hidePlayAgain();
-	$('#you-lose').hide();
+	removeAllTemps();
+	$('#you-lose').slideUp();
+	$('#you-win').slideUp();
+	$('#submit-button').slideDown();
 }
 
 function updateGuessCounter(n) {
@@ -25,79 +82,64 @@ function updateGuessCounter(n) {
 
 function wrongAnswer() {
 	updateGuessCounter(-1);
-	if (currentGame.guessCounter <= 0) { 
-		youLose() 
-	}
+	
+	$('#user-guess-list').append($("<li class=\"list-group-item\">" + currentGame.input + "</li>"));
 }
 
 function youLose() {
-	$('#you-lose').show();
-	showNewGame();
-}
-
-function hidePlayAgain() {
-	$('#new-game-button').slideUp('fast');
-	$('#new-game-button').addClass('you-lose-popup');
-}
-
-function showNewGame() {
-	$('#new-game-button').removeClass('you-lose-popup');
-	$('#new-game-button').slideDown('fast');
-}
-
-function evalNum(n) {
-	var difference = currentGame.randomNumber - n;
-	
-	switch(true) {
-		case difference >= 60 || difference <= -60:
-			return "Very Cold";
-		case difference >= 40 || difference <= -40:
-			return "Cold";
-		case difference >= 30 || difference <= -30:
-			return "Not So Warm";
-		case difference >= 20 || difference <= -20:
-			return "Getting Warm";
-		case difference >= 15 || difference <= -15:
-			return "Getting Warm";
-		case difference >= 10 || difference <= -10:
-			return "Hot!";
-		case difference >= 5 || difference <= -5:
-			return "Very Hot!";
-		case difference >= 1 || difference <= -1:
-			return "Burning Up!";
-		default:
-			return "Try Again";	
-	}
+	removeAllTemps();
+	$('#you-lose').slideDown().removeClass('hidden');
+	$('#submit-button').slideUp();
 }
 
 function runSubmitButton() {
-	currentGame.input = $('#numberguess').val();
-	if(currentGame.input !== currentGame.randomNumber) { 
+	var check = currentGame.takeInput($('#numberguess').val());
+	if(!check) {
+		alert("Invalid Input.  Please pick a new number between 1 and 100."); 
+		return false;
+	}
+	
+	if (currentGame.guessCounter <= 0) { 
+		youLose(); 
+	} else if(currentGame.input != currentGame.randomNumber) { 
+		currentGame.evaluateInput(currentGame.tempDirection);
 		wrongAnswer();
 	} else { 
-		alert("You Win!") 
+		$('#you-win').slideDown().removeClass('hidden');
+		$('#submit-button').slideUp();
 	}
+	
 }
 
 //RUN BEFORE PAGE LOADS
 //reset();
 
 currentGame = new GameObject();
-$('#you-lose').hide();
 
-$(document).ready(function() {
+$(document).ready(function() {	
+	$('#you-lose').hide();
+
+	$('#numberguess').select();
+	
 	$("#new-game-button").click(function() {
 		reset();
 	});
 	
 	$("#submit-button").on('click', function() {
 		runSubmitButton();
+		$("#numberguess").val('');
+	});
+	
+	$("#numberguess").keypress(function(event) {
+		if(event.which == 13) {
+			runSubmitButton();
+			$("#numberguess").val('');
+		}
 	});
 	
 	$('#hint-button').on('click', function() {
-		var hintString = evalNum(currentGame.input);
-//		alert($('#hint-button').data());
-		alert(hintString);
+		alert("The number was " + currentGame.randomNumber + ".  Try harder next time!!");
+		reset();
 		
 	});
 	

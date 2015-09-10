@@ -36,38 +36,47 @@
 		</div>
 -->
 		
-<!--	New Game Button-->
+<!----------	Row 1	---------->
 		<div class="row">
-			<div class="col-md-4">
+		<!----------	Column 1	---------->
+			<div class="col-md-3">
 				<div class="form-group">
-					<label for="numberinput">Guess a Number!</label>
+					<label for="numberinput" id="input-title">Guess a Number!</label>
 					<input type="text" class="form-control" id="numberguess" placeholder="Input Number 1-100">
-					
 					<button class="btn btn-info btn-lg" id="submit-button">Submit Your Guess</button>
 				</div>
 			</div>
-			
-			<div class="col-md-4">
-				<div class="" id="you-lose">
-					<h3>YOU LOSE!</h3>
-				</div>
-			</div>
-			<div class="col-md-4">
-
-			</div>
-			
-		</div>
-		<div class="row">
-			<div class="col-md-4">
+		<!----------	Column 2	---------->
+			<div class="col-md-6">
+				<h3 class="hidden" id="you-lose">YOU LOSE!</h3>
+				<h3 class="hidden" id="you-win">YOU WIN!!</h3>
+				
+				<h3 class="hidden" id="getting-hotter">Getting Hotter...</h3>
+				<h3 class="hidden" id="getting-colder">Getting Colder...</h3>
+				<h3 class="hidden" id="you-are-hot">You're Hot!</h3>
+				<h3 class="hidden" id="you-are-cold">You're Cold!</h3>
+				
+<!--
+				<img class="hidden" id="cold-image" src="cold-therm.jpg">
+				<img class="hidden" id="hot-image" src="hot-sun.jpg">
+-->
+				
 				<button type="button" class="btn btn-default btn-lg" id="new-game-button">New Game</button>
 					
-				<button type="button" class="btn btn-default btn-lg" data-container="body" data-toggle="popover" data-placement="right" data-content="Enter a Number" id="hint-button">Give me a Hint</button>	
+				<button type="button" class="btn btn-default btn-lg" data-container="body" data-toggle="popover" data-placement="right" data-content="Enter a Number" id="hint-button">Give me a Hint</button>
 			</div>
 			
-					
+		<!----------	Column 3	---------->
+			<div class="col-md-3">
+				<h4>Your Guesses:</h4>
+					<ul class="list-group" id="user-guess-list"></ul>
+			</div>
 			
 		</div>
-			
+<!----------	Row 2	---------->
+
+		
+		
 		
 		
 		<footer class="page-footer">
