@@ -82,8 +82,15 @@ function updateGuessCounter(n) {
 
 function wrongAnswer() {
 	updateGuessCounter(-1);
+	var s;
+	if(currentGame.tempDirection < 0) {
+		s = "style=\"color: crimson\"";
+	} else {
+		s = "style=\"color: aqua\"";
+	}
 	
-	$('#user-guess-list').append($("<li class=\"list-group-item\">" + currentGame.input + "</li>"));
+	
+	$('#user-guess-list').append($("<li " + s + "class=\"list-group-item\">" + currentGame.input + "</li>"));
 }
 
 function youLose() {
